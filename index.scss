@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Poppins:wght@300;500;600;700&family=Grey+Qo&family=Parisienne&family=Roboto:wght@300;400&family=Ubuntu:wght@400;500;700&display=swap');
+
+$dark: hsl(250deg 19% 13%);
+$orange: hsl(24deg 86% 74%);
+$vert: hsl(102deg 32% 62%);
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+ 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.navigation{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-logo{
+        p{
+            color: $dark;
+            font-weight: 700;
+            font-size: 30px;
+            span{
+                color: $vert;
+                font-weight: 700;
+            }
+        }
+    }
+    &-links{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .navigation-link{
+            font-weight: 500;
+            padding: 1rem;
+            cursor: pointer;
+        }
+    }
+    &-button{
+        button:nth-child(1){
+            color: $dark;
+            background: none;
+            border: 2px solid #fff;
+            font-weight: 500;
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+            transition: .3s ease-in-out;
+            &:hover{
+                cursor: pointer;
+                background: $dark;
+                color: #fff;
+            }
+        }
+        button:nth-child(2){
+            color: #fff;
+            font-weight: 500;
+            background: $dark;
+            border-radius: 30px;
+            border: 2px solid $dark;
+            padding: 0.5rem 1rem;
+            transition: .3s ease-in-out;
+            &:hover{
+                cursor: pointer;
+                background: #fff;
+                color: $dark;
+            }
+        }
+    }
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    &-left{
+        width: 30%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        .slogan{
+            margin: 5px;
+            overflow: hidden;
+            h2{
+                font-size: 3em;
+                color: $dark;
+                font-weight: 500;
+            }
+        }
+        .slogan:nth-child(1) h2{
+            transform: translateY(100%);
+            animation: slogan 1s ease-in-out forwards;
+            animation-delay: .3s;
+        }
+        .slogan:nth-child(2) h2{
+            transform: translateY(100%);
+            animation: slogan 1s ease-in-out forwards;
+            animation-delay: .2s;
+        }
+        .slogan:nth-child(3) h2{
+            transform: translateY(100%);
+            animation: slogan 1s ease-in-out forwards;
+            animation-delay: .1s;
+        }
+        @keyframes slogan {
+            50%{
+                transform: translateY(100%);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        .slogan:nth-child(3){
+            margin-bottom: 10rem;
+        }
+        &-passion{
+            width: 400px;
+            position: absolute;
+            bottom: 5rem;
+            box-shadow: 1px 1px 20px #11111118;
+            padding: 2rem 4rem 2rem 1rem;
+            h2{
+                font-size: 15px;
+                opacity: .7;
+            }
+            div{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                right: 0;
+                top: 0;
+                background: $orange;
+                width: 100px;
+                height: 100%;
+                cursor: pointer;
+                span{
+                    font-size: 30px;
+                    font-weight: 500;
+                    color: $dark;
+                    z-index: 3;
+                }
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    background: $vert;
+                    transform: scaleY(0);
+                    transform-origin: bottom;
+                    transition: transform .3s ease-in-out;
+                }
+                &:hover::before{
+                    transform: scaleY(1);
+                }
+            }
+        }
+    }
+    &-right{
+        display: flex;
+        width: 65%;
+        &-img{
+            overflow: hidden;
+            border-radius: 20px;
+            width: 300px;
+            height: 450px;
+            margin: 1rem;
+            cursor: pointer;
+            transition: width .3s ease;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            // &:first-child{
+            //     width: 100%;
+            // }
+            // &:nth-child(2):hover{
+            //     width: 600px;
+            // }
+            &:hover{
+                width: 100%;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    h2{
+        font-weight: 500;
+        color: $dark;
+    }
+    &-links{
+        display: flex;
+        li{
+            //padding: 1rem;
+            margin: 1rem;
+            color: $dark;
+            cursor: pointer;
+            position: relative;
+            &::before{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                background: #222;
+                height: 1px;
+                bottom: 0;
+                transform-origin: 100% 0;
+                transform: scaleX(0);
+                transition: transform .4s;
+            }
+            &:hover::before{
+                transform-origin: 0 0;
+                transform: scaleX(1);
+            }
+        }
+    }
+}
